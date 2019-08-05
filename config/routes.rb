@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   resources :pools, :bookings
   resources :bookings do
-    :reviews
+    :reviews only: [ :show, :new, :create, :edit, :update, :delete ]
   end
 end
