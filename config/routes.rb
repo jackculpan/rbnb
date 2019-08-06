@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'pools#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :pools, :bookings
+  resources :pools
   resources :bookings do
-    :reviews
+    resources :reviews, only: [ :show, :new, :create, :edit, :update, :delete ]
   end
 end
