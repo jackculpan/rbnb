@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_pool, :find_user
+  before_action :set_pool, :set_user
   def index
     @bookings = Booking.all
   end
@@ -42,15 +42,15 @@ class BookingsController < ApplicationController
 
   private
 
-  def find_pool
+  def set_pool
     @pool = Pool.find(params[:pool_id])
   end
 
-  def find_user
+  def set_user
     @user = User.find(params[:user_id])
   end
 
   def booking_params
-    params.require(:booking).permit(:total_amount, :pool_id, :user_id,:start_date, :end_date)
+    params.require(:booking).permit(:total_amount, :pool_id, :user_id, :start_date, :end_date)
   end
 end
