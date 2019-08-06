@@ -1,9 +1,10 @@
 <table>
+  <h1>All pools</h1>
 <h3><% @pools.each do |pool| %></h3>
-<h2>Name: </h2><h3><%= pool.name %></h3>
-<h2>Location: </h2><h3><%= pool.location %></h3>
-<h2>Price: </h2><h3><%= pool.price %>$</h3>
-<h2>Number of people: </h2><h3><%= pool.number_of_people %></h3>
+<h2>Name: <%= pool.name %></h2>
+<h2>Location: <%= pool.location %></h2>
+<h2>Price: <%= pool.price %>$</h2>
+<h2>Number of people: <%= pool.number_of_people %></h2>
 <%= link_to 'details', pool, class: "btn btn-primary" %>
 <% end %>
 </table>
