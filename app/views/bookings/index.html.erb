@@ -1,10 +1,13 @@
-<h1> My Bookings </h1>
-
-<% @bookings.each |booking| %>
-<ul>
-  <li><%= booking.total_amount %></li>
-  <li><%= booking.start_date - booking.end_date%></li>
-  <li><%= booking.user_id %></li>
-  <li><%= booking.pool_id %></li>
-</ul>
-<% end %>
+<div class="container">
+  <div class="col-8 d-flex justify-content-center">
+    <h1> My Bookings </h1>
+    <% @bookings.each |booking| %>
+    <ul>
+      <li><%= booking.total_amount %></li>
+      <li><%= booking.start_date - booking.end_date%></li>
+      <li><%= booking.user_id %></li>
+      <li><%= booking.pool_id %></li>
+    </ul>
+    <% end %>
+  </div>
+</div>
