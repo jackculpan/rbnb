@@ -1,11 +1,18 @@
 <div class="container">
-  <div class="col-8">
-    <h2> My reservations </h2>
-    <%= @booking.total_amount %>
-    <%= @booking.start_date %>
-    <%= @booking.end_date %>
-    <%= @booking.user_id %>
-    <%= @booking.pool_id %>
+  <div class="show-card">
+    <div class="col-8">
+      <h2> My reservations </h2>
+      <ul>
+        <li> Booking total: <%=@booking.total_amount %></li>
+        <li> Booking start date: <%=@booking.start_date %></li>
+        <li> Booking end date:" <%= @booking.end_date %></li>
+        <li> Booking user id:" <%=@booking.user_id %></li>
+        <li> Booking pool id:" <%= @booking.pool_id %></li>
+      </ul>
+      <%# if @booking.end_date > Time.now %>
+        <%#= render #new review form %>
+      <%# end %>
+    </div>
   </div>
 </div>
 
