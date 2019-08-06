@@ -1,5 +1,7 @@
 class PoolsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :home
+  
   def index
     @pools = Pool.all
   end
@@ -18,6 +20,7 @@ class PoolsController < ApplicationController
       redirect_to pools_path
     else
       render 'new'
+    end
   end
 
   def edit
