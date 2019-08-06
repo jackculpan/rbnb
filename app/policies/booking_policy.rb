@@ -1,8 +1,12 @@
 class BookingPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.where(user: user)
-    end
+  # class Scope < Scope
+  #   def resolve
+  #     scope.where(user: user)
+  #   end
+  # end
+
+  def show?
+    true
   end
 
   def new?
