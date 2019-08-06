@@ -10,7 +10,7 @@ User.destroy_all if Rails.env.development?
 Pool.destroy_all if Rails.env.development?
 puts "done delete"
 
-user = User.create!(first_name: 'Jack', last_name: 'Culpan', email: 'bigj@gmail.com', password: '111111', business: true)
+user = User.create!(first_name: 'Jack', last_name: 'Culpan', email: 'bigj@gmail.com', password: '111111', admin: true, business: true)
 pool = Pool.create!(user_id: user.id, name: 'Jacks big pool', location: 'Surrey', price: 20, number_of_people: 5, description: 'Good', photo: "texttest")
 
-Booking.create!(user_id: user.id, pool_id: pool.id, total_amount: 45, start_date: "20190801", end_date: "20190808", admin: true)
+Booking.create!(user_id: user.id, pool_id: pool.id, total_amount: 45, start_date: "20190801", end_date: "20190808")
