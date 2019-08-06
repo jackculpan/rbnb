@@ -1,7 +1,9 @@
-<% @pools.each do |pool| %>
-<%= pool.name %>
-<%= pool.location %>
-<%= pool.price %>
-<%= pool.number_of_people %>
-<%= cl_image_tag @pool.photo %>
+<table>
+<h3><% @pools.each do |pool| %></h3>
+<h2>Name: </h2><h3><%= pool.name %></h3>
+<h2>Location: </h2><h3><%= pool.location %></h3>
+<h2>Price: </h2><h3><%= pool.price %>$</h3>
+<h2>Number of people: </h2><h3><%= pool.number_of_people %></h3>
+<%= link_to 'details', pool, class: "btn btn-primary" %>
 <% end %>
+</table>
