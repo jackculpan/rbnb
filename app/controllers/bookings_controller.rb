@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_pool, :set_user
+  before_action :set_pool, only: [:create]
+  # before_action :set_user, only: [:create]
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
