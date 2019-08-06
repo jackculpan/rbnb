@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = find_booking
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
@@ -26,12 +26,12 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = find_booking[:id]
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 
   def update
-    @booking = find_booking
+    @booking = Booking.find(params[:id])
     authorize @booking
     if @booking.update(booking_params)
       redirect_to booking_path(@booking[:id])
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = find_booking
+    @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to bookings_path(find_user[:user_id])
