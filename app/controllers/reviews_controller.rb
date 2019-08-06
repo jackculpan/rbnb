@@ -1,23 +1,23 @@
 class ReviewsController < ApplicationController
 
-  before_action :set_reviews, :only [:show, :edit, :update, :destroy, :chef]
+  before_action :set_reviews, :only [:show, :edit, :update, :destroy]
 
-  def index
-    @reviews.all
-  end
 
   def show
     @reviews = @booking.reviews
   end
 
   def new
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
   end
 
   def create
-    @review = Review.new(review_params)
+    @review = Review.new(review_params
+    @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
     if @review.save
-      redirect_to reviews_path #go to home page ?
+      redirect_to booking_path(@booking)
     else
       render "new"
     end
@@ -28,14 +28,15 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to reviews_path #go to the updated review
+      redirect_to booking_path(@booking)
     else
       render "edit"
     end
   end
 
-  def destroy #go to homepage ?
+  def destroy
     @review.destroy
+    redirect_to booking_path(@booking)
   end
 
   private
