@@ -1,8 +1,12 @@
 class ReviewPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  # class Scope < Scope
+  #   def resolve
+  #     scope.all
+  #   end
+  # end
+
+  def show?
+    true
   end
 
   def new?
@@ -14,7 +18,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    is_user_or_admin?
   end
 
   def update?
