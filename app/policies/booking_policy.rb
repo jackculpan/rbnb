@@ -14,20 +14,20 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    is_user_or_admin?
   end
 
   def update?
-    is_admin?
+    is_user_or_admin?
   end
 
   def destroy?
-    is_admin?
+    is_user_or_admin?
   end
 
   private
 
-  def is_admin?
-    record.user == user.admin
+  def is_user_or_admin?
+    record.user == user || user.admin
   end
 end

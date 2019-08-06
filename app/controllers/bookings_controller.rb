@@ -1,10 +1,5 @@
 class BookingsController < ApplicationController
   before_action :set_pool, :set_user
-  def index
-    @bookings = policy_scope(Booking)
-    authorize @booking
-  end
-
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
