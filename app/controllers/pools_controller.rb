@@ -1,5 +1,7 @@
 class PoolsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: :home
+
   def index
     @pools = Pool.all
   end

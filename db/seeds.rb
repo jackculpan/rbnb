@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Deleting all files"
+User.destroy_all if Rails.env.development?
+Pool.destroy_all if Rails.env.development?
+puts "done delete"
+user = User.create!(first_name: 'Jack', last_name: 'Culpan', email: 'bigj@gmail.com', password: '111111')
+Pool.create!(user: user, name: 'Jacks big pool', location: 'Surrey', price: 20, number_of_people: 5, description: 'Good')
