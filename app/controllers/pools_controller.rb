@@ -18,6 +18,7 @@ class PoolsController < ApplicationController
       redirect_to pools_path
     else
       render 'new'
+    end
   end
 
   def edit
