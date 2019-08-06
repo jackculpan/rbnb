@@ -1,0 +1,7 @@
+<% @pools.each do |pool| %>
+<%= pool.name %>
+<%= pool.location %>
+<%= pool.price %>
+<%= pool.number_of_people %>
+<%= cl_image_tag @pool.photo %>
+<% end %>
