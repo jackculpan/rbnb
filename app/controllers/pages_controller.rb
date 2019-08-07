@@ -5,6 +5,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @bookings_i_made = current_user.bookings
-    #@bookings_i_received = Booking.join(:pools).where(usrer: current_user)
+    @bookings_i_received = Booking.join(:pools).where(user: current_user)
   end
 end
