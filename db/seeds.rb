@@ -8,6 +8,7 @@
 puts "Deleting all files"
 User.destroy_all if Rails.env.development?
 Pool.destroy_all if Rails.env.development?
+Booking.destroy_all if Rails.env.development?
 puts "done delete"
 
 user = User.create!(first_name: 'Jack', last_name: 'Culpan', email: 'bigj@gmail.com', password: '111111', admin: true, business: true)
