@@ -16,7 +16,7 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Home", "/", class: "dropdown-item" %>
           <%= link_to "My dashboard", "/users/dashboard", class: "dropdown-item" %>
-          <%= link_to "Add pool", pools_path, class: "dropdown-item" %>
+          <%= link_to "Add pool", new_pool_path, class: "dropdown-item" %>
           <%= link_to "log out", destroy_user_session_path, class: "dropdown-item" %>
         </div>
       </li>

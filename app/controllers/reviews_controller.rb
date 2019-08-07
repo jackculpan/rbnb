@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, :only [:show, :create, :edit, :update, :destroy]
-  before_action :set_review, :only [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :create, :edit, :update, :destroy]
+
   def show
     @reviews = @booking.reviews
     authorize @review

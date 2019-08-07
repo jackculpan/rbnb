@@ -10,7 +10,8 @@
         <li> Booking pool id: <%= @booking.pool_id %></li>
       </ul>
       <h3> Reviews </h3>
-      <% @reviews.each do |review| %>
+      <%= render 'reviewform' %>
+
       <ul>
         <li> <%= review.content %> </li>
         <li> <%= review.rating %> </li>
