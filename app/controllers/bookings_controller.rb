@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   # before_action :set_user, only: [:create]
   def show
     @booking = Booking.find(params[:id])
+    @review = Review.new
     authorize @booking
   end
 

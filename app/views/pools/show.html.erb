@@ -1,26 +1,28 @@
+  <div class="Image">
+    <img src="<%= cl_image_path @pool.photo%>">
+  </div>
 <div class="container">
   <div class="card">
-    <div class="card-body">
-      <img src="<%= cl_image_path @pool.photo%>">
-      <h1>Pool name: <%= @pool.name %></h1>
-      <h2>Location: <%= @pool.location %></h2>
-      <h2>Price: <%= @pool.price %>$</h2>
-      <h2>Number of people: <%= @pool.number_of_people %></h2>
-      <h2>Description: <%= @pool.description %></h2>
-      <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
-      <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
-      <%= link_to "Back", root_path, class: "btn btn-primary" %>
-    </div>
+   <div class="card-body">
+    <h1>Pool name: <%= @pool.name %></h1>
+    <h2>Location: <%= @pool.location %></h2>
+    <h2>Price: <%= @pool.price %>$</h2>
+    <h2>Number of people: <%= @pool.number_of_people %></h2>
+    <h2>Description: <%= @pool.description %></h2>
+    <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
+    <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
+    <%= link_to "Back", root_path, class: "btn btn-primary" %>
   </div>
 </div>
 
 <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+id="map"
+style="width: 100%;
+height: 600px;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+</div>
 
 
 

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, :only [:show, :create, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :create, :edit, :update, :destroy]
 
   def show
     @review = Review.find(params[:id])
