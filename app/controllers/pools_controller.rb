@@ -28,6 +28,7 @@ class PoolsController < ApplicationController
 
   def create
     @pool = Pool.new(set_params)
+    @pool.user = current_user
     authorize @pool
     if @pool.save
       redirect_to pools_path
