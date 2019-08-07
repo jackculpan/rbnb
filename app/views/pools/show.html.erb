@@ -1,6 +1,6 @@
-  <div class="Image">
-    <img src="<%= cl_image_path @pool.photo%>">
-  </div>
+<div class="Image">
+  <img src="<%= cl_image_path @pool.photo%>">
+</div>
 <div class="container">
   <div class="card">
    <div class="card-body">
@@ -14,18 +14,22 @@
   </div>
 </div>
 
-<div
-id="map"
-style="width: 100%;
-height: 600px;"
-data-markers="<%= @markers.to_json %>"
-data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  <div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
-
-
-
-<% @reviews.each do |review| %>
-<p><%= review.content %></p>
-<p><%= review.rating %></p>
-<% end %>
+<div class="container">
+  <div class="card">
+    <h2> Reviews </h2>
+    <% @pool.bookings.each do |booking| %>
+    <ul>
+      <li> <p>Content: <%= booking.review.content %></p> </li>
+      <li> <p>Rating: <%= booking.review.rating %></p> </li>
+    </ul>
+    <% end %>
+  </div>
+</div>
