@@ -16,3 +16,5 @@ user = User.create!(first_name: 'Jack', last_name: 'Culpan', email: 'bigj@gmail.
 pool = Pool.create!(user_id: user.id, name: 'Jacks big pool', location: 'Surrey', price: 20, number_of_people: 5, description: 'Good', photo: "texttest")
 booking = Booking.create!(user_id: user.id, pool_id: pool.id, total_amount: 45, start_date: "20190801", end_date: "20190808")
 review = Review.create!(content: "Wow amazing pool", booking_id: booking.id, rating: 5)
+pool = Pool.create!(user_id: User.first.id, name: 'Jacks big pool', location: 'Surrey', price: 20, number_of_people: 5, description: 'Good', photo: "texttest")
+
