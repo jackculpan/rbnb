@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="col-8">
     <div class="show-card">
       <h2> My reservations </h2>
       <% @bookings_i_made.each do |booking| %>
@@ -13,8 +12,9 @@
       <%# if @booking.end_date > Time.now %>
         <%#= render #new review form %>
       <%# end %>
+    <h3> Add review </h3>
+    <%#= render "reviews/form", booking: @booking, review: @review %>
       <% end %>
     </div>
-  </div>
 </div>
 

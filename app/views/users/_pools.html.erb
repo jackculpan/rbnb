@@ -1,5 +1,4 @@
 <div class="container">
-  <div class="col-8">
     <div class="show-card">
       <h2> My pools </h2>
       <% @pools_i_own.each do |pool| %>
@@ -15,12 +14,11 @@
         <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary mb-1" %></li>
         <li><%= link_to "Delete pool", pool_path(pool.id), method: :destroy, class: "btn btn-primary mb-1" %></li>
       </ul>
-      <h3> Reviews </h3>
+<!--       <h3> Reviews </h3>
       <ul>
         <li> </li>
-      </ul>
+      </ul> -->
       <% end %>
     </div>
-  </div>
 </div>
 
