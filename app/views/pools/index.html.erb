@@ -1,17 +1,16 @@
-<div id="top-text">
-<h1 class="header">POOLR</h1>
+<!-- <div class="container">
+  <h1 class="header">POOLR</h1>
+  <h2>The perfect solution to rent a pool</h2>
+  <h3>Find a pool close to you</h3>
+  <p>An afternoon with friends or in family, a birthday? Discover thousands of pools ! </p>
+</div> -->
 
-<h1 class="header">Share your happyiess</h1>
-<p>The perfect solution to rent a pool</p>
-</div>
-
-<h2>Find a pool close to you</h2>
-<p>An afternoon with friends or in family, a birthday? Discover thousands of pools ! </p>
+<h1> Poolr </h1>
 <div class="container">
   <div class="cards">
     <% @pools.each do |pool| %>
 <!--       <a href="<%=pool_path(pool.id)%>" class="href">
- -->        <div class="card">
+ -->    <div class="card">
           <div class="card-category card-img"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photo%>')">
             <div class="card-content">
               <h2><%= pool.name %></h2>
@@ -25,8 +24,7 @@
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
 
