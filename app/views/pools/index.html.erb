@@ -2,7 +2,7 @@
 <div class="container">
   <div class="cards">
     <% @pools.each do |pool| %>
-<!--       <a href="<%=pool_path(pool.id)%>" class="href">
+<!--      <a href="<#%=pool_path(pool.id)%>" class="href">
  -->        <div class="card">
           <div class="card-category card-img"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photo%>')">
             <div class="card-content">
@@ -17,7 +17,6 @@
             </div>
           </div>
         </div>
-      </div>
     <% end %>
   </div>
 </div>
