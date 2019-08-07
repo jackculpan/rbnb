@@ -1,9 +1,9 @@
-class BookingPolicy < ApplicationPolicy
-  # class Scope < Scope
-  #   def resolve
-  #     scope.where(user: user)
-  #   end
-  # end
+class PoolPolicy < ApplicationPolicy
+  #class Scope < Scope
+   # def resolve
+   #   scope.all
+   # end
+  #end
 
   def show?
     true
@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def edit?
-    is_user_or_admin?
+    true
   end
 
   def update?
