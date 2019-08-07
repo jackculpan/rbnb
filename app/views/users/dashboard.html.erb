@@ -1,0 +1,8 @@
+<div class="container">
+  <% if current_user.business %>
+    <%= render "bookings" %>
+    <%= render "pools" %>
+    <%= link_to "View my pools", root_path, class: "btn btn-primary" %>
+  <% end %>
+  <%= render "reservations" %>
+</div>
