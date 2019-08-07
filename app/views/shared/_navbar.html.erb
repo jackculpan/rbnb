@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="http://localhost:3000/pools/">Home</a>
+ <a class="navbar-brand" href="http://localhost:3000/pools/">Home</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-      <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
@@ -13,11 +14,14 @@
 
   </div>
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:3000/users/sign_in">Sign in <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="http://localhost:3000/users/sign_up">Sign up <span class="sr-only">(current)</span></a>
+       <li class="nav-item dropdown">
+         <%= image_tag "https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Home", "/", class: "dropdown-item" %>
+          <%= link_to "My dashboard", "/users/dashboard", class: "dropdown-item" %>
+          <%= link_to "Add pool", pools_path, class: "dropdown-item" %>
+          <%= link_to "log out", destroy_user_session_path, class: "dropdown-item" %>
+        </div>
       </li>
     </ul>
   </div>

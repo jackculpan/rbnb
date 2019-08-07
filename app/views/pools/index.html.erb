@@ -1,21 +1,32 @@
 <div id="top-text">
+<h1 class="header">POOLR</h1>
+
 <h1 class="header">Share your happyiess</h1>
 <p>The perfect solution to rent a pool</p>
 </div>
 
 <h2>Find a pool close to you</h2>
 <p>An afternoon with friends or in family, a birthday? Discover thousands of pools ! </p>
-
 <div class="container">
+  <div class="cards">
     <% @pools.each do |pool| %>
-  <div class="card">
-    <div class="card-body">
-      <h5>Name: <%= pool.name %></h5>
-      <p>Location: <%= pool.location %></p>
-      <p>Price: <%= pool.price %>$</p>
-      <p>Number of people: <%= pool.number_of_people %></p>
-      <%= link_to 'details', pool, class: "btn btn-primary" %>
-    </div>
+<!--       <a href="<%=pool_path(pool.id)%>" class="href">
+ -->        <div class="card">
+          <div class="card-category card-img"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path pool.photo%>')">
+            <div class="card-content">
+              <h2><%= pool.name %></h2>
+            </div>
+            <div class="card-body">
+              <h5>Name: <%= pool.name %></h5>
+              <p>Location: <%= pool.location %></p>
+              <p>Price: <%= pool.price %>$</p>
+              <p>Number of people: <%= pool.number_of_people %></p>
+              <%= link_to 'View pool', pool, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-      <% end %>
 </div>
+

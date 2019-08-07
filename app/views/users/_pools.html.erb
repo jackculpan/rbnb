@@ -2,6 +2,7 @@
   <div class="col-8">
     <div class="show-card">
       <h2> My pools </h2>
+      <%= link_to "Add pool", new_pool_path, class: "btn btn-primary" %>
       <% @pools_i_own.each do |pool| %>
       <ul>
         <li> Pool name </li>
@@ -11,7 +12,7 @@
         <li> Pool number of people: <%= pool.number_of_people %></li>
         <li> Pool photo: <%= pool.photo %></li>
         <li><%= link_to "View pool", pool_path(pool.id), class: "btn btn-primary" %></li>
-        <li><%= link_to "Edit pool", edit_pool(pool.id), class: "btn btn-primary" %></li>
+        <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary" %></li>
         <li><%= link_to "Delete pool", pool_path(pool.id), method: :destroy, class: "btn btn-primary" %></li>
       </ul>
       <h3> Reviews </h3>
