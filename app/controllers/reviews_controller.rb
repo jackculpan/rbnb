@@ -1,8 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_booking, :only [:show, :create, :edit, :update, :destroy]
-
+  before_action :set_review, :only [:show, :edit, :update, :destroy]
   def show
-    @review = Review.find(params[:id])
     @reviews = @booking.reviews
     authorize @review
   end
@@ -24,12 +23,10 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
     authorize @review
   end
 
   def update
-    @review = Review.find(params[:id])
     authorize @review
     if @review.update(review_params)
       redirect_to booking_path(@booking[:id])
@@ -39,7 +36,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
     authorize @review
     @review.destroy
     redirect_to booking_path(@booking[:id])
@@ -49,6 +45,10 @@ class ReviewsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:booking_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def review_params

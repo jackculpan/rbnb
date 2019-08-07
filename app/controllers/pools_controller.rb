@@ -14,6 +14,7 @@ class PoolsController < ApplicationController
 
   def show
     @pool = Pool.find(params[:id])
+    @reviews = @pool.reviews
     authorize @pool
     @markers = { lat: @pool.latitude, lng: @pool.longitude }
   end

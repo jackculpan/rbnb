@@ -24,5 +24,7 @@
 
 
 
-
-
+<% @reviews.each do |review| %>
+<p><%= review.content %></p>
+<p><%= review.rating %></p>
+<% end %>
