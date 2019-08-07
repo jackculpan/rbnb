@@ -1,7 +1,7 @@
 <div class="container">
   <div class="show-card">
     <div class="col-8">
-      <h2> My bookings </h2>
+      <h2> Booking <%=@booking.id%> </h2>
       <ul>
         <li> Booking total: <%=@booking.total_amount %></li>
         <li> Booking start date: <%=@booking.start_date %></li>
@@ -10,9 +10,12 @@
         <li> Booking pool id: <%= @booking.pool_id %></li>
       </ul>
       <h3> Reviews </h3>
+      <% @reviews.each do |review| %>
       <ul>
-        <li> </li>
+        <li> <%= review.content %> </li>
+        <li> <%= review.rating %> </li>
       </ul>
+      <% end %>
     </div>
   </div>
 </div>
