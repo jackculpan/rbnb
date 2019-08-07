@@ -1,5 +1,4 @@
-<%= simple_form_for(@review) do |f| %>
-
+<%= simple_form_for[@review, @booking] do |f| %>
   <% if @review.errors.any? %>
     <div class="errors-container">
       <ul>
