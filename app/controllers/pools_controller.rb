@@ -3,13 +3,20 @@ class PoolsController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def index
-    @pools = Pool.all
+    @pools = Pool.geocoded
+    @markers = @pools.map do |pool|
+      {
+        lat: pool.latitude,
+        lng: pool.longitude
+      }
+    end
   end
 
   def show
     @pool = Pool.find(params[:id])
     @reviews = @pool.reviews
     authorize @pool
+    @markers = { lat: @pool.latitude, lng: @pool.longitude }
   end
 
   def new
@@ -42,6 +49,6 @@ class PoolsController < ApplicationController
   private
 
   def set_params
-    params.require(:pool).permit(:name, :location, :price, :number_of_people, :description)
+    params.require(:pool).permit(:name, :location, :price, :number_of_people, :description, :photo)
   end
 end
