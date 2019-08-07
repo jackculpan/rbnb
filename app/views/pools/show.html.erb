@@ -26,5 +26,7 @@ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 
 
 
-
-
+<% @reviews.each do |review| %>
+<p><%= review.content %></p>
+<p><%= review.rating %></p>
+<% end %>

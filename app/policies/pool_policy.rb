@@ -5,6 +5,10 @@ class PoolPolicy < ApplicationPolicy
    # end
   #end
 
+  def dashboard?
+    true
+  end
+
   def show?
     true
   end
