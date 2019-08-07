@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <img src="pool.photo">
+      <img src="<%= cl_image_path @pool.photo%>">
       <h1>Pool name: <%= @pool.name %></h1>
       <h2>Location: <%= @pool.location %></h2>
       <h2>Price: <%= @pool.price %>$</h2>
