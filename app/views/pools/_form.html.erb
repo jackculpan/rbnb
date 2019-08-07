@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for(@pool) do |f| %>
+  <%= simple_form_for @pool do |f| %>
     <% if @pool.errors.any? %>
       <div class="errors-container">
         <ul>
@@ -17,6 +17,7 @@
       <%= f.input :number_of_people %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
+      <%= f.association :user #needs setting as the user filling out the form %>
     </div>
     <div class="form-actions">
       <%= f.submit "Submit", class: "btn btn-primary" %>
