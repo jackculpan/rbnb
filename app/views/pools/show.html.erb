@@ -1,10 +1,18 @@
-<h1>Your pool</h1>
-<h2>Name: <%= @pool.name %></h2>
-<h2>Location: <%= @pool.location %></h2>
-<h2>Price: <%= @pool.price %>$</h2>
-<h2>Number of people: <%= @pool.number_of_people %></h2>
-<h2>Description: <%= @pool.description %></h2>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <img src="pool.photo">
+      <h1>Pool name: <%= @pool.name %></h1>
+      <h2>Location: <%= @pool.location %></h2>
+      <h2>Price: <%= @pool.price %>$</h2>
+      <h2>Number of people: <%= @pool.number_of_people %></h2>
+      <h2>Description: <%= @pool.description %></h2>
+      <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
+      <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
+      <%= link_to "Back", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
 
 
