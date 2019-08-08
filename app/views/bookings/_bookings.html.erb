@@ -11,13 +11,15 @@
   </div>
   <div class="show-card m-5">
     <h3> Reviews </h3>
-    <%= render 'reviewform' %>
-
     <ul>
       <li> <%= @review.content %> </li>
       <li> <%= @review.rating %> </li>
-      <li> Left by: <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
+      <li> Guest name: </li>
+      <li> <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
     </ul>
+  </div>
+  <div class="show-card m-5">
+    <%= render 'reviewform' %>
   </div>
 </div>
 
