@@ -9,7 +9,10 @@
     <h2>Price: <%= @pool.price %>$</h2>
     <h2>Number of people: <%= @pool.number_of_people %></h2>
     <h2>Description: <%= @pool.description %></h2>
-    <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
+    <%= link_to "View all pools", root_path, class: "btn btn-primary mt-5" %>
+      <h3 class="mt-5"> Book pool </h3>
+      <%= render "bookings/form" %>
+
   </div>
 </div>
 
@@ -24,18 +27,12 @@
 <div class="container">
   <div class="card">
     <h2> Reviews </h2>
-    <% @pool.bookings.each do |booking| %>
-    <ul>
-      <li> <p>Content: <%= booking.review.content %></p> </li>
-      <li> <p>Rating: <%= booking.review.rating %></p> </li>
-    </ul>
-    <% end %>
+      <% @pool.bookings.each do |booking| %>
+      <ul>
+        <li> Content: <%= booking.review.content %> </li>
+        <li> Rating: <%= booking.review.rating %> </li>
+      </ul>
+      <% end %>
   </div>
 </div>
-
-<div class="form-popup" id="myForm">
-  <h2>Book the pool</h2>
-  <%= render "bookings/form" %>
-</div>
-
 
