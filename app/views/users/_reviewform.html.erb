@@ -1,0 +1,22 @@
+
+<div class="container">
+  <%= simple_form_for([booking, @review]) do |f| %>
+    <% if @review.errors.any? %>
+      <div class="errors-container">
+        <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-inputs">
+      <%= f.input :content %>
+      <%= f.input :rating %>
+      <%#= f.association :user needs setting as the user filling out the form %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

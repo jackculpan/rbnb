@@ -10,6 +10,7 @@
         <li> Booking pool id: <%=booking.pool_id %></li>
         <li> <%= link_to "Edit Booking", edit_booking_path(booking.id), class: "btn btn-danger mb-1" %> </li>
         <li> <%= link_to "Delete Booking", booking_path(booking.id), method: :destroy, class: "btn btn-danger mb-1" %> </li>
+
       </ul>
       <% end %>
     </div>

@@ -9,11 +9,7 @@
         <li> Booking host:" <%=booking.user_id %></li>
         <li> Booking pool:" <%=booking.pool_id %></li>
       </ul>
-      <%# if @booking.end_date > Time.now %>
-        <%#= render #new review form %>
-      <%# end %>
-    <h3> Add review </h3>
-    <%#= render "reviews/form", booking: @booking, review: @review %>
+      <%= link_to "View", booking_path(booking.id), class: "btn btn-primary" %>
       <% end %>
     </div>
 </div>
