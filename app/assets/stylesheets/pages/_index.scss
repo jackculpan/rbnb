@@ -2,5 +2,37 @@
 @import "home";
 @import "pool_index";
 
-body {
-  }
+#top-homepage {
+ background-image: url("https://res.cloudinary.com/rahulsuvarna18/image/upload/v1565234387/homepage.jpg");
+ height: 650px;
+ text-align: center;
+ padding: 100px;
+ letter-spacing: 3px;
+ background-size: cover;
+ margin-bottom : 50px
+ }
+
+#top-homepage h1{
+
+ letter-spacing: 10px;
+ font-size: 70px;
+ margin-top: 50px;
+ margin-bottom: 50px;
+ text-align: center;
+ }
+
+ #top-homepage h2{
+ letter-spacing: 10px;
+ font-size: 50px;
+ margin-bottom: 70px;
+ }
+
+  #top-homepage p{
+ letter-spacing: 2px;
+ font-size: 20px;
+ margin-bottom: 70px;
+ padding-left: 0px;
+ padding-right: 50px;
+ width: 500px;
+ }
+
