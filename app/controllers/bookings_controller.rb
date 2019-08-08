@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_pool, only: [:create]
-  # before_action :set_user, only: [:create]
+
   def show
     @booking = Booking.find(params[:id])
     @review = Review.new
@@ -14,11 +14,14 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.total_amount = (@booking.end_date - @booking.start_date) * @pool.price
+    @booking.pool = @pool
+    @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to booking_path(@booking[:id])
+      redirect_to dashboard_users_path
     else
-      render :new
+      render "pools/show"
     end
   end
 
@@ -55,6 +58,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:total_amount, :pool_id, :user_id, :start_date, :end_date)
+    params.require(:booking).permit(:total_amount, :start_date, :end_date)
   end
 end

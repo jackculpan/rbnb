@@ -9,7 +9,8 @@
     <h2>Price: <%= @pool.price %>$</h2>
     <h2>Number of people: <%= @pool.number_of_people %></h2>
     <h2>Description: <%= @pool.description %></h2>
-    <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
+    <%= link_to "Book Pool", class: "btn btn-danger", onclick: "openForm()" %>
+
     <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
   </div>
 </div>
@@ -33,3 +34,9 @@
     <% end %>
   </div>
 </div>
+
+<div class="form-popup" id="myForm">
+  <%= render "bookings/form" %>
+</div>
+
+
