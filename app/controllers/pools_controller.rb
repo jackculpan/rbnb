@@ -46,6 +46,13 @@ class PoolsController < ApplicationController
     redirect_to pools_path
   end
 
+  def destroy
+    @pool = Pool.find(params[:id])
+    authorize @pool
+    @pool.destroy
+    redirect_to dashboard_users_path
+  end
+
   def search
     Pool.where("name ILIKE '%#{params[:query].first.capitalize}%'")
   end

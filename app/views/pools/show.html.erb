@@ -9,11 +9,10 @@
     <h2>Price: <%= @pool.price %>$</h2>
     <h2>Number of people: <%= @pool.number_of_people %></h2>
     <h2>Description: <%= @pool.description %></h2>
+    <%= link_to "View all pools", root_path, class: "btn btn-primary mt-5" %>
       <h3 class="mt-5"> Book pool </h3>
       <%= render "bookings/form" %>
 
-
-    <%= link_to "View all pools", root_path, class: "btn btn-primary mt-5" %>
   </div>
 </div>
 
@@ -36,5 +35,4 @@
       <% end %>
   </div>
 </div>
-
 
