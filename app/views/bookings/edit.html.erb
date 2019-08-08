@@ -1,0 +1,8 @@
+<h2> Edit bookings </h2>
+  <div class="col-10">
+    <ul>
+      <li> Booking id: <%= @booking.id %> </li>
+      <li> Guest name: <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
+    </ul>
+  </div>
+<%= render "form" %>

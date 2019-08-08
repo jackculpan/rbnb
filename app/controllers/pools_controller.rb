@@ -2,8 +2,6 @@ class PoolsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @pools = params[:query] ? search : Pool.geocoded
-
-    #@pools = Pool.geocoded
     @markers = @pools.map do |pool|
       {
         lat: pool.latitude,
@@ -15,6 +13,7 @@ class PoolsController < ApplicationController
   def show
     @pool = Pool.find(params[:id])
     @reviews = @pool.reviews
+    @booking = Booking.new
     authorize @pool
     @markers = { lat: @pool.latitude, lng: @pool.longitude }
   end
@@ -43,12 +42,19 @@ class PoolsController < ApplicationController
   def update
     @pool = Pool.find(params[:id])
     authorize @pool
-    @restaurant.update(set_params)
+    @pool.update(set_params)
     redirect_to pools_path
   end
 
+  def destroy
+    @pool = Pool.find(params[:id])
+    authorize @pool
+    @pool.destroy
+    redirect_to dashboard_users_path
+  end
+
   def search
-    Pool.where("name LIKE '%#{params[:query].first.capitalize}%'")
+    Pool.where("name ILIKE '%#{params[:query].first.capitalize}%'")
   end
 
   private

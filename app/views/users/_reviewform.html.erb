@@ -1,6 +1,6 @@
-<h4>Add review</h4>
+
 <div class="container">
-  <%= simple_form_for([@booking, @review]) do |f| %>
+  <%= simple_form_for([booking, @review]) do |f| %>
     <% if @review.errors.any? %>
       <div class="errors-container">
         <ul>
