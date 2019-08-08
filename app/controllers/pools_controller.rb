@@ -43,7 +43,7 @@ class PoolsController < ApplicationController
   def update
     @pool = Pool.find(params[:id])
     authorize @pool
-    @restaurant.update(set_params)
+    @pool.update(set_params)
     redirect_to pools_path
   end
 
