@@ -34,23 +34,9 @@
     <% end %>
   </div>
 </div>
-<!--
+
 <div class="form-popup" id="myForm">
-  <form action="<%=pool_bookings_path(@pool.id)%>" class="form-container">
-    <h1>Book pool</h1>
+  <%= render "bookings/form" %>
+</div>
 
-    <label for="email"><b>Dates</b></label>
-    <input type="date" name="start_date" required>
-    <input type="date" name="end_date" required>
-
-
-    <label for="total_cost"><b>Total cost</b></label>
-    <%# end_date - start_date * @pool.total_cost %>
-
-    <button type="submit" class="btn">Book</button>
-    <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div> -->
-
-<%= render "bookings/form" %>
 
