@@ -1,38 +1,47 @@
-<div class="Image">
-  <img src="<%= cl_image_path @pool.photo%>">
+<div class="image-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pool.photo%>')">
 </div>
+
+
 <div class="container">
-  <div class="card">
-   <div class="card-body">
-    <h1>Pool name: <%= @pool.name %></h1>
-    <h2>Location: <%= @pool.location %></h2>
-    <h2>Price: <%= @pool.price %>$</h2>
-    <h2>Number of people: <%= @pool.number_of_people %></h2>
-    <h2>Description: <%= @pool.description %></h2>
-    <%= link_to "View all pools", root_path, class: "btn btn-primary mt-5" %>
-      <h3 class="mt-5"> Book pool </h3>
-      <%= render "bookings/form" %>
+  <div class="row show-row">
+    <div class="col-12 col-md-6">
+      <div class="card">
+       <div class="card-body">
+        <h3>Pool name: <%= @pool.name %></h3>
+        <p>Location: <%= @pool.location %></p>
+        <p>Price: <%= @pool.price %>$</p>
+        <p>Number of people: <%= @pool.number_of_people %></p>
+        <p>Description: <%= @pool.description %></p>
+        <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
+        <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+    <div class="col-12 col-md-6">
+      <div
+      id="map"
+      style="width: 100%;
+      height: 350px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+    </div>
 
   </div>
 </div>
 
-  <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-</div>
+
+
+
 <div class="container">
   <div class="card">
-    <h2> Reviews </h2>
-      <% @pool.bookings.each do |booking| %>
-      <ul>
-        <li> Content: <%= booking.review.content %> </li>
-        <li> Rating: <%= booking.review.rating %> </li>
-      </ul>
-      <% end %>
+    <h3> Reviews </h3>
+    <% @pool.bookings.each do |booking| %>
+    <ul>
+      <li> <p>Content: <%= booking.review.content %></p> </li>
+      <li> <p>Rating: <%= booking.review.rating %></p> </li>
+    </ul>
+    <% end %>
   </div>
 </div>
 

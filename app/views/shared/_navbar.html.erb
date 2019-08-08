@@ -1,11 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <a class="navbar-brand" href="/">Home</a>
+ <a class="navbar-brand" href="http://localhost:3000/pools/"><img src="https://res.cloudinary.com/rahulsuvarna18/image/upload/v1565234366/LogoSample_ByTailorBrands_1_dqp4uy.jpg" alt="Home" class="logo-home"></a>
 <%= render "shared/search" %>
 
 <% if current_user && current_user.business %>
       <%= link_to "Add pool", new_pool_path, class: "btn btn-primary" %>
+  <% elsif current_user %>
+  <%= "Welcome #{current_user.first_name} #{current_user.last_name}"  %>
   <% else %>
-  Welcome new user
+  Welcome guest. Please sign in
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +22,7 @@
        <li class="nav-item dropdown">
          <%= image_tag "https://images.pexels.com/photos/355288/pexels-photo-355288.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "My dashboard", dashboard_users_path, class: "dropdown-item" %>
           <%= link_to "Home", "/", class: "dropdown-item" %>
           <% if current_user %>
           <%= link_to "Welcome, #{current_user.first_name} #{current_user.last_name}" , dashboard_users_path, class: "dropdown-item" %>
