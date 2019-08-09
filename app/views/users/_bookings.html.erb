@@ -9,7 +9,9 @@
         <li> Booking user id: <%=booking.user_id %></li>
         <li> Booking pool id: <%=booking.pool_id %></li>
         <li> <%= link_to "Edit Booking", edit_booking_path(booking.id), class: "btn btn-danger mb-1" %> </li>
+
         <li> <%= link_to "Delete Booking", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
+
       </ul>
       <% end %>
     </div>
