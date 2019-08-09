@@ -51,10 +51,12 @@ class PoolsController < ApplicationController
     authorize @pool
     if @pool.destroy
       respond_to do |format|
+        format.html { redirect_to dashboard_users_path }
         format.js  # <-- will render `app/views/pools/destroy.js.erb`
       end
     else
       respond_to do |format|
+        format.html { redirect_to dashboard_users_path }
         format.js  # <-- idem
       end
     end
