@@ -9,20 +9,21 @@
       <li> Pool name: <%= @booking.pool.name %></li>
     </ul>
   </div>
-  <% if @booking.review.content == nil %>
+  <%# if @booking.review.nil? %>
     <div class="show-card m-5">
       <%= render 'reviewform' %>
     </div>
-  <% end %>
-  <% if @booking.review != nil %>
+  <%# end %>
     <div class="show-card m-5" id ="new_review">
       <h4> Your review </h4>
       <ul id ="reviews">
-        <li> <%= @booking.review.content %> </li>
-        <li> <%= @booking.review.rating %> </li>
-        <li> <%= link_to "Edit review", edit_review_path(@booking.review.id), class: "btn btn-warning mt-5" %> </li>
+          <% if @booking.review != nil %>
+          <li> <%= @booking.review.content %> </li>
+          <li> <%= @booking.review.rating %> </li>
+          <li> <%= link_to "Edit", edit_review_path(@booking.review.id), class: "btn btn-warning mt-5" %> </li>
+          <li> <%= link_to "Delete", review_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-1" %> </li>
+          <% end %>
       </ul>
     </div>
-  <% end %>
 </div>
 

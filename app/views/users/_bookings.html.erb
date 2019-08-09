@@ -2,17 +2,19 @@
    <div class="show-card">
       <h2> My bookings </h2>
       <% @bookings_i_received.each do |booking| %>
-      <ul data-booking-id="<%= booking.id %>">
-        <li> Guest name: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
-        <li> Pool name: <%=booking.pool.name %></li>
-        <li> Booking total: $<%=booking.total_amount %></li>
-        <li> Booking start date: <%=booking.start_date %></li>
-        <li> Booking end date: <%=booking.end_date %></li>
-        <div class="row justify-content-around mt-2">
-          <li> <%= link_to "Edit", edit_booking_path(booking.id), class: "btn btn-warning mb-1" %> </li>
-          <li> <%= link_to "Delete", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
-        </div>
-      </ul>
+      <div class="card p-2">
+        <ul data-booking-id="<%= booking.id %>">
+          <li> Guest name: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
+          <li> Pool name: <%=booking.pool.name %></li>
+          <li> Booking total: $<%=booking.total_amount %></li>
+          <li> Booking start date: <%=booking.start_date %></li>
+          <li> Booking end date: <%=booking.end_date %></li>
+          <div class="row justify-content-around mt-2">
+            <li> <%= link_to "Edit", edit_booking_path(booking.id), class: "btn btn-warning mb-1" %> </li>
+            <li> <%= link_to "Delete", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
+          </div>
+        </ul>
+      </div>
       <% end %>
     </div>
 </div>
