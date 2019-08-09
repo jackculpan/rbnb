@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -45,7 +45,7 @@
 
 .show-card {
   background: #F8F9FA;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   border-radius: 3px;
