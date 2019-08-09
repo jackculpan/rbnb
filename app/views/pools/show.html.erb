@@ -12,8 +12,9 @@
         <p>Price: <%= @pool.price %>$</p>
         <p>Number of people: <%= @pool.number_of_people %></p>
         <p>Description: <%= @pool.description %></p>
-        <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
-        <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-success" %>
+
+        <%= link_to "View all pools", root_path, class: "btn btn-primary mb-5" %>
+        <%= render "bookings/form" %>
       </div>
     </div>
   </div>
