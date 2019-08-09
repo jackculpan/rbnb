@@ -3,8 +3,9 @@
       <h2> My pools </h2>
       <% @pools_i_own.each do |pool| %>
       <ul data-pool-id="<%= pool.id %>">
+        <a href="<%=pool_path(pool.id)%>" class="href">
         <li> <h3> <%= pool.name %> <h3> </li>
-        <img src="<%= cl_image_path pool.photo%>" alt="" height="200px">
+        <img src="<%= cl_image_path pool.photo%>" alt="" height="200px"></a>
 <!--         <li> Description: <%= pool.description %></li>
         <li> Location: <%= pool.location %></li>
         <li> Price: £<%= pool.price %></li>
