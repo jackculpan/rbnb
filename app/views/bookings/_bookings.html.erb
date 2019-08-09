@@ -2,22 +2,27 @@
   <div class="show-card m-5">
     <h2> Booking no. <%=@booking.id%> </h2>
     <ul>
-      <li> Booking total: <%=@booking.total_amount %></li>
+      <li> Booking total cost: $<%=@booking.total_amount %></li>
       <li> Booking start date: <%=@booking.start_date %></li>
       <li> Booking end date: <%= @booking.end_date %></li>
       <li> Booking user id: <%=@booking.user_id %></li>
-      <li> Booking pool id: <%= @booking.pool_id %></li>
+      <li> Pool name: <%= @booking.pool.name %></li>
     </ul>
   </div>
-  <div class="show-card m-5">
-    <h3> Reviews </h3>
-    <%= render 'reviewform' %>
-
-    <ul>
-      <li> <%= @review.content %> </li>
-      <li> <%= @review.rating %> </li>
-      <li> Left by: <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
-    </ul>
-  </div>
+  <% if @booking.review.content == nil %>
+    <div class="show-card m-5">
+      <%= render 'reviewform' %>
+    </div>
+  <% end %>
+  <% if @booking.review != nil %>
+    <div class="show-card m-5" id ="new_review">
+      <h4> Your review </h4>
+      <ul id ="reviews">
+        <li> <%= @booking.review.content %> </li>
+        <li> <%= @booking.review.rating %> </li>
+        <li> <%= link_to "Edit review", edit_review_path(@booking.review.id), class: "btn btn-primary mt-5" %> </li>
+      </ul>
+    </div>
+  <% end %>
 </div>
 

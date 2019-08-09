@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_booking, only: [:show, :create, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :create, :update, :destroy]
 
   def show
     @reviews = @booking.reviews
@@ -15,14 +15,27 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     authorize @review
+    # if @review.save
+    #   redirect_to booking_path(@booking[:id])
+    # else
+    #   render "new"
+    # end
+
     if @review.save
-      redirect_to booking_path(@booking[:id])
+      respond_to do |format|
+        format.html { redirect_to booking_path(@booking) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render "new"
+      respond_to do |format|
+        format.html { render 'bookings/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
   def edit
+    @review = Review.find(params[:id])
     authorize @review
   end
 
