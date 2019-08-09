@@ -49,8 +49,15 @@ class PoolsController < ApplicationController
   def destroy
     @pool = Pool.find(params[:id])
     authorize @pool
-    @pool.destroy
-    redirect_to dashboard_users_path
+    if @pool.destroy
+      respond_to do |format|
+        format.js  # <-- will render `app/views/pools/destroy.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.js  # <-- idem
+      end
+    end
   end
 
   def search
