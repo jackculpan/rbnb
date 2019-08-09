@@ -43,8 +43,15 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
-    @booking.destroy
-    redirect_to bookings_path(find_user[:user_id])
+    if @booking.destroy
+      respond_to do |format|
+        format.js  # <-- will render `app/views/reviews/destroy.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.js  # <-- idem
+      end
+    end
   end
 
   private
@@ -54,7 +61,7 @@ class BookingsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def booking_params
