@@ -1,12 +1,14 @@
-<div class="container">
-</div><h2> Edit booking </h2>
-  <div class="col-10">
-    <ul>
-      <li> Booking id: <%= @booking.id %> </li>
-      <li> Pool name: <%= @booking.pool.name %> </li>
-      <li> Pool location: <%= @booking.pool.location.capitalize %> </li>
-      <li> Guest name: <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
-    </ul>
-  </div>
-<%= render "form" %>
+<div class="container pt-5">
+  <h2> Edit booking </h2>
+    <div class="col-10">
+      <ul style="list-style: none;">
+        <li> Guest name: <%= @booking.user.first_name %> <%= @booking.user.last_name %> </li>
+        <li> Pool name: <%= @booking.pool.name %> </li>
+        <li> Pool location: <%= @booking.pool.location.capitalize %> </li>
+        <li> Booking id: <%= @booking.id %> </li>
+      </ul>
+    </div>
+  <%= render "form" %>
+  <%= link_to "Back", dashboard_users_path, class: "btn btn-primary" %>
+</div>
 

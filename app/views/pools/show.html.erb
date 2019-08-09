@@ -35,9 +35,9 @@
 
 
 <div class="container">
-  <div class="card p-2">
+  <div class="card p-4">
     <% @pool.bookings.each do |booking| %>
-    <ul>
+    <ul style="list-style: none;">
       <% if booking.review.present? %>
         <h3> Reviews </h3>
         <li> <p>Content: <%= booking.review.content %></p> </li>
