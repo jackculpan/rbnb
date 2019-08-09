@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path(find_user[:user_id])
+    redirect_to dashboard_users_path(set_user[:id])
   end
 
   private
@@ -54,7 +54,7 @@ class BookingsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def booking_params
