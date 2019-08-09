@@ -22,7 +22,7 @@ class PoolPolicy < ApplicationPolicy
   end
 
   def edit?
-    true
+    is_user_or_admin?
   end
 
   def update?

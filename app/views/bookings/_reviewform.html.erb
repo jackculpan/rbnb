@@ -1,6 +1,6 @@
 <h4>Add review</h4>
 <div class="container">
-  <%= simple_form_for([@booking, @review]) do |f| %>
+  <%= simple_form_for([@booking, @review], remote: true) do |f| %>
     <% if @review.errors.any? %>
       <div class="errors-container">
         <ul>
@@ -13,7 +13,6 @@
     <div class="form-inputs">
       <%= f.input :content %>
       <%= f.input :rating %>
-      <%#= f.association :user needs setting as the user filling out the form %>
     </div>
     <div class="form-actions">
       <%= f.submit "Submit", class: "btn btn-primary" %>

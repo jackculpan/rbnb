@@ -1,4 +1,4 @@
-<%= simple_form_for[@review, @booking] do |f| %>
+<%= simple_form_for([booking, review]) do |f| %>
   <% if @review.errors.any? %>
     <div class="errors-container">
       <ul>
@@ -15,6 +15,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
