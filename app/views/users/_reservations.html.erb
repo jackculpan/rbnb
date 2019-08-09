@@ -12,6 +12,9 @@
             <li> Booking pool: <%=booking.pool.name %></li>
             <li><%= link_to "View", booking_path(booking.id), class: "btn btn-primary btn-sm" %></li>
           </ul>
+         <div class="row justify-content-around mt-1 mb-2">
+          <%= link_to "View", booking_path(booking.id), class: "btn btn-primary" %>
+        </div>
         <% end %>
       </div>
     <% else %>
