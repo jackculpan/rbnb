@@ -1,6 +1,7 @@
 <div class="container">
-   <div class="show-card">
+   <div class="show-booking-dashboard">
       <h2> My bookings </h2>
+      <% if @bookings_i_received.any? %>
       <% @bookings_i_received.each do |booking| %>
       <ul data-booking-id="<%= booking.id %>">
         <li> Guest name: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
@@ -13,6 +14,9 @@
           <li> <%= link_to "Delete", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
         </div>
       </ul>
+      <% end %>
+      <% else %>
+      <p>You don't have booking for the moment</p>
       <% end %>
     </div>
 </div>
