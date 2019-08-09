@@ -5,9 +5,9 @@
       <ul>
         <li> Booking total: $<%=booking.total_amount %></li>
         <li> Booking start date: <%=booking.start_date %></li>
-        <li> Booking end date:" <%= booking.end_date %></li>
-        <li> Booking host:" <%=booking.user.first_name %> <%=booking.user.last_name %></li>
-        <li> Booking pool:" <%=booking.pool.name %></li>
+        <li> Booking end date: <%= booking.end_date %></li>
+        <li> Booking host: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
+        <li> Booking pool: <%=booking.pool.name %></li>
       </ul>
       <div class="row justify-content-around mt-2">
         <%= link_to "View", booking_path(booking.id), class: "btn btn-primary" %>
