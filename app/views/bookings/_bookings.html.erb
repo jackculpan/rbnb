@@ -5,7 +5,7 @@
       <li> Booking total cost: $<%=@booking.total_amount %></li>
       <li> Booking start date: <%=@booking.start_date %></li>
       <li> Booking end date: <%= @booking.end_date %></li>
-      <li> Booking user id: <%=@booking.user_id %></li>
+      <li> Host name: <%=@booking.user.first_name %> <%=@booking.user.last_name %></li>
       <li> Pool name: <%= @booking.pool.name %></li>
     </ul>
   </div>
@@ -20,7 +20,7 @@
       <ul id ="reviews">
         <li> <%= @booking.review.content %> </li>
         <li> <%= @booking.review.rating %> </li>
-        <li> <%= link_to "Edit review", edit_review_path(@booking.review.id), class: "btn btn-primary mt-5" %> </li>
+        <li> <%= link_to "Edit review", edit_review_path(@booking.review.id), class: "btn btn-warning mt-5" %> </li>
       </ul>
     </div>
   <% end %>

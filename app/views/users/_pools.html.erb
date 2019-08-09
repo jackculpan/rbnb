@@ -10,12 +10,16 @@
         <li> Location: <%= pool.location %></li>
         <li> Price: £<%= pool.price %></li>
         <li> Max number of people: <%= pool.number_of_people %></li> -->
-        <li><%= link_to "View pool", pool_path(pool.id), class: "btn btn-primary mb-1 mt-2" %></li>
-        <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary mb-1" %></li>
-        <li><%= link_to "Delete Pool", pool, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %></li>
+        <div class="row justify-content-around mt-2 mb-2">
+          <li><%= link_to "View", pool_path(pool.id), class: "btn btn-primary mb-1" %></li>
+          <li><%= link_to "Edit", edit_pool_path(pool.id), class: "btn btn-warning mb-1" %></li>
+          <li><%= link_to "Delete", pool, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %></li>
+        </div>
       </ul>
       <% end %>
-      <%= link_to "Add pool", new_pool_path, class: "btn btn-primary mb-1" %>
+      <div class="row justify-content-around">
+        <%= link_to "Add New Pool", new_pool_path, class: "btn btn-primary mb-1" %>
+      </div>
     </div>
 </div>
 
