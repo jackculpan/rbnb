@@ -1,25 +1,27 @@
 <div class="container">
-   <div class="show-booking-dashboard">
-      <h2> My bookings </h2>
-      <% if @bookings_i_received.any? %>
-      <% @bookings_i_received.each do |booking| %>
-      <div class="card p-2">
-        <ul data-booking-id="<%= booking.id %>">
-          <li> Guest name: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
-          <li> Pool name: <%=booking.pool.name %></li>
-          <li> Booking total: $<%=booking.total_amount %></li>
-          <li> Booking start date: <%=booking.start_date %></li>
-          <li> Booking end date: <%=booking.end_date %></li>
-          <div class="row justify-content-around mt-2">
-            <li> <%= link_to "Edit", edit_booking_path(booking.id), class: "btn btn-warning mb-1" %> </li>
-            <li> <%= link_to "Delete", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
-          </div>
-        </ul>
-      </div>
-      <% end %>
-      <% else %>
-      <p>You don't have booking for the moment</p>
-      <% end %>
+ <div class="show-booking-dashboard">
+  <h2> My bookings </h2>
+  <% if @bookings_i_received.any? %>
+  <div class="row">
+    <% @bookings_i_received.each do |booking| %>
+    <div class="card p-3" id="card-booking">
+      <ul data-booking-id="<%= booking.id %>" style="list-style: none;">
+        <li> Guest name: <%=booking.user.first_name %> <%=booking.user.last_name %></li>
+        <li> Pool name: <%=booking.pool.name %></li>
+        <li> Booking total: $<%=booking.total_amount %></li>
+        <li> Booking start date: <%=booking.start_date %></li>
+        <li> Booking end date: <%=booking.end_date %></li>
+        <div class="row justify-content-around mt-2">
+          <li> <%= link_to "Edit", edit_booking_path(booking.id), class: "btn btn-primary mb-1" %> </li>
+          <li> <%= link_to "Delete", booking, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %> </li>
+        </div>
+      </ul>
     </div>
+    <% end %>
+  </div>
+  <% else %>
+  <p>You don't have booking for the moment</p>
+  <% end %>
+</div>
 </div>
 
