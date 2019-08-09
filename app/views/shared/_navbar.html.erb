@@ -2,13 +2,15 @@
  <a class="navbar-brand" href="http://localhost:3000/pools/"><img src="https://res.cloudinary.com/rahulsuvarna18/image/upload/v1565234366/LogoSample_ByTailorBrands_1_dqp4uy.jpg" alt="Home" class="logo-home"></a>
 <%= render "shared/search" %>
 
-<% if current_user && current_user.business %>
-      <%= link_to "Add pool", new_pool_path, class: "btn btn-primary" %>
-  <% elsif current_user %>
-  <%= "Welcome #{current_user.first_name} #{current_user.last_name}"  %>
-  <% else %>
-  Welcome guest. Please sign in
-  <% end %>
+<strong class="nav-bar-welcome" style="color: rgb(19, 144, 203)">
+  <% if current_user && current_user.business %>
+        <%= link_to "Add pool", new_pool_path, class: "btn btn-primary" %>
+    <% elsif current_user %>
+    <%= "Welcome #{current_user.first_name} #{current_user.last_name}"  %>
+    <% else %>
+    Welcome guest. Please sign in
+    <% end %>
+  </strong>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
