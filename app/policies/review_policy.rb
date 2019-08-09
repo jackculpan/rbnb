@@ -32,6 +32,6 @@ class ReviewPolicy < ApplicationPolicy
   private
 
   def is_user_or_admin?
-    record.user == user || user.admin
+    record.booking.user == user || user.admin
   end
 end
