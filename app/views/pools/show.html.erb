@@ -5,15 +5,16 @@
 <div class="container">
   <div class="row show-row">
     <div class="col-12 col-md-6">
-      <div class="card">
+      <div class="card mt-0 h-100">
        <div class="card-body">
         <h3>Pool name: <%= @pool.name %></h3>
         <p>Location: <%= @pool.location %></p>
         <p>Price: <%= @pool.price %>$</p>
         <p>Number of people: <%= @pool.number_of_people %></p>
         <p>Description: <%= @pool.description %></p>
-        <%= link_to "Book Pool", pool_bookings_path(@pool.id), method: :post, class: "btn btn-danger" %>
-        <%= link_to "View all pools", root_path, class: "btn btn-primary" %>
+
+        <%= link_to "View all pools", root_path, class: "btn btn-primary mb-5" %>
+        <%= render "bookings/form" %>
       </div>
     </div>
   </div>
@@ -35,11 +36,14 @@
 
 <div class="container">
   <div class="card">
-    <h3> Reviews </h3>
     <% @pool.bookings.each do |booking| %>
     <ul>
-      <li> <p>Content: <%= booking.review.content %></p> </li>
-      <li> <p>Rating: <%= booking.review.rating %></p> </li>
+      <% if booking.review.content && booking.review.rating != nil %>
+        <h3> Reviews </h3>
+        <li> <p>Content: <%= booking.review.content %></p> </li>
+        <li> <p>Rating: <%= booking.review.rating %></p> </li>
+        <% else %>
+      <% end %>
     </ul>
     <% end %>
   </div>
