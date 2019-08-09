@@ -2,8 +2,10 @@
   <div class="show-booking-dashboard">
     <h2> My reservations </h2>
     <% if @bookings_i_made.any? %>
-      <div class="cards">
-        <% @bookings_i_made.each do |booking| %>
+      <div class="row">
+
+    <% @bookings_i_made.each do |booking| %>
+      <div class="card p-3" id="card-booking">
           <ul style="list-style: none;">
             <li> Booking total: $<%=booking.total_amount %></li>
             <li> Booking start date: <%=booking.start_date %></li>
@@ -15,8 +17,10 @@
          <div class="row justify-content-around mt-1 mb-2">
           <%= link_to "View", booking_path(booking.id), class: "btn btn-primary" %>
         </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+        </div>
+
     <% else %>
       <p>You have no reservation for the moment</p>
     <% end %>
