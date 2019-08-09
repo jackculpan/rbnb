@@ -5,17 +5,19 @@
       <div class="errors-container">
         <ul>
           <% @review.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+            <div class="cards">
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-inputs">
+        <%= f.input :content %>
+        <%= f.input :rating %>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
       </div>
     <% end %>
-    <div class="form-inputs">
-      <%= f.input :content %>
-      <%= f.input :rating %>
     </div>
-    <div class="form-actions">
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-    </div>
-  <% end %>
 </div>

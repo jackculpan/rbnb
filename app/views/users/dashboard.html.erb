@@ -1,17 +1,9 @@
 <div class="container mt-5">
- <div id="card-dashboard">
 
   <% if current_user.business %>
-    <div class="booking-dashboard">
       <%= render "bookings" %>
-    </div>
-
-    <div class="booking-dashboard">
       <%= render "pools" %>
-    </div>
     <% end %>
 
-    <div class="booking-dashboard">
     <%= render "reservations" %>
-    </div>
   </div>
