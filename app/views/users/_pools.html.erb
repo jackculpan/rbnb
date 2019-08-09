@@ -2,25 +2,28 @@
   <div class="show-booking-dashboard">
     <h2> My pools </h2>
     <% if @pools_i_own.any? %>
-      <div class="cards">
+      <div class="row">
+
         <% @pools_i_own.each do |pool| %>
+        <div class="card p-3" id="card-booking">
           <ul class="mr-3" style="list-style: none;">
             <li class="images-dashboard"><%= cl_image_tag pool.photo, width: 200 %></li>
-            <li> <%= pool.name %> </li>
-            <li> Description: <%= pool.description %></li>
+            <li> <%= pool.name.capitalize %> </li>
+            <li> Description: <%= pool.description.capitalize %></li>
             <li> Location: <%= pool.location %></li>
             <li> Price: <%= pool.price %></li>
             <li> Number of people: <%= pool.number_of_people %></li>
-            <li><%= link_to "View pool", pool_path(pool.id), class: "btn btn-primary btn-sm mb-1" %></li>
-            <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary btn-sm mb-1" %></li>
-            <li><%= link_to "Delete Pool", pool_path(pool.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-1 btn-sm" %></li>
+            <div class="row justify-content-around mt-2">
+              <li><%= link_to "View pool", pool_path(pool.id), class: "btn btn-primary btn-sm mb-1" %></li>
+              <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary btn-sm mb-1" %></li>
+              <li><%= link_to "Delete Pool", pool_path(pool.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-1 btn-sm" %></li>
+            </div>
           </ul>
-        <% end %>
-        <div class="row justify-content-around">
-        <%= link_to "Add New Pool", new_pool_path, class: "btn btn-primary mb-1" %>
       </div>
+        <% end %>
+          </div>
     <% else %>
-      <p>You didn't add pool for the moment</p>
+      <p>You haven't added any pools yet!</p>
     <% end %>
   </div>
 </div>
