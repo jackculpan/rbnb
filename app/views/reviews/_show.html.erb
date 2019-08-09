@@ -1,4 +1,7 @@
 
   <li> <%= @review.content %> </li>
   <li> <%= @review.rating %> </li>
-  <li> <%= link_to "Edit review", edit_review_path(@review), class: "btn btn-warning mt-5" %> </li>
+  <div class="row justify-content-around mt-2">
+    <li> <%= link_to "Edit", edit_review_path(@review), class: "btn btn-warning mb-2" %> </li>
+    <li> <%= link_to "Delete", review_path(@review), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mb-1" %> </li>
+  </div>
