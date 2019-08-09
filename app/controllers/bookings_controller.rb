@@ -43,8 +43,15 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
-    @booking.destroy
-    redirect_to dashboard_users_path(set_user[:id])
+    if @booking.destroy
+      respond_to do |format|
+        format.js  # <-- will render `app/views/reviews/destroy.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.js  # <-- idem
+      end
+    end
   end
 
   private

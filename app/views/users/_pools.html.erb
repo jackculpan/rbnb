@@ -2,24 +2,18 @@
     <div class="show-card">
       <h2> My pools </h2>
       <% @pools_i_own.each do |pool| %>
-      <ul>
+      <ul data-pool-id="<%= pool.id %>">
         <a href="<%= cl_image_path pool.photo%>" class="href"></a>
-        <li> Pool name: <%= pool.name %> </li>
-        <li> Pool description: <%= pool.description %></li>
-        <li> Pool location: <%= pool.location %></li>
-        <li> Pool price: <%= pool.price %></li>
-        <li> Pool number of people: <%= pool.number_of_people %></li>
+        <li> <%= pool.name %> </li>
+        <li> About this pool: <%= pool.description %></li>
+        <li> Location: <%= pool.location %></li>
+        <li> Price: £<%= pool.price %></li>
+        <li> Max number of people: <%= pool.number_of_people %></li>
         <li><%= link_to "Add pool", new_pool_path, class: "btn btn-primary mb-1" %></li>
         <li><%= link_to "View pool", pool_path(pool.id), class: "btn btn-primary mb-1" %></li>
         <li><%= link_to "Edit pool", edit_pool_path(pool.id), class: "btn btn-primary mb-1" %></li>
-        <li><%= link_to "Delete Pool", pool_path(pool.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary mb-1" %></li>
-
-
+        <li><%= link_to "Delete Pool", pool, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %></li>
       </ul>
-<!--       <h3> Reviews </h3>
-      <ul>
-        <li> </li>
-      </ul> -->
       <% end %>
     </div>
 </div>
