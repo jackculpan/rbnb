@@ -6,6 +6,8 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { openForm, closeForm } from '../components/popup'
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initAutocompleteForPool } from '../plugins/init_autocomplete';
 
 initMapbox();
 initAutocomplete();
+initAutocompleteForPool();
