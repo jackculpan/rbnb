@@ -1,6 +1,7 @@
 <div class="container">
-    <div class="show-card">
+    <div class="show-form">
       <h2> My pools </h2>
+       <% if @pools_i_own.any? %>
       <% @pools_i_own.each do |pool| %>
       <ul data-pool-id="<%= pool.id %>">
         <a href="<%=pool_path(pool.id)%>" class="href">
@@ -15,11 +16,14 @@
           <li><%= link_to "Edit", edit_pool_path(pool.id), class: "btn btn-warning mb-1" %></li>
           <li><%= link_to "Delete", pool, data: { confirm: "Are you sure?" }, method: :delete, remote: true, class: "btn btn-danger mb-1" %></li>
         </div>
-      </ul>
+       </ul>
+      <% else %>
+        <p>You didn't add pool for the moment</p>
       <% end %>
+     <% end %>
       <div class="row justify-content-around">
         <%= link_to "Add New Pool", new_pool_path, class: "btn btn-primary mb-1" %>
       </div>
-    </div>
+   </div>
 </div>
 
