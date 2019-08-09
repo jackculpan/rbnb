@@ -1,17 +1,20 @@
 <div class="container">
-   <div class="show-card">
+   <div class="show-booking-dashboard">
       <h2> My bookings </h2>
+      <% if @bookings_i_received.any? %>
       <% @bookings_i_received.each do |booking| %>
       <ul>
-        <li> Booking total: <%=booking.total_amount %></li>
-        <li> Booking start date: <%=booking.start_date %></li>
-        <li> Booking end date: <%=booking.end_date %></li>
-        <li> Booking user id: <%=booking.user_id %></li>
-        <li> Booking pool id: <%=booking.pool_id %></li>
+        <li> Total amount: <%=booking.total_amount %></li>
+        <li> Start date: <%=booking.start_date %></li>
+        <li> End date: <%=booking.end_date %></li>
+        <li> User id: <%=booking.user_id %></li>
+        <li> Pool id: <%=booking.pool_id %></li>
         <li> <%= link_to "Edit Booking", edit_booking_path(booking.id), class: "btn btn-danger mb-1" %> </li>
         <li> <%= link_to "Delete Booking", booking_path(booking.id), method: :delete, class: "btn btn-danger mb-1" %> </li>
-
       </ul>
+      <% end %>
+      <% else %>
+      <p>You don't have booking for the moment</p>
       <% end %>
     </div>
 </div>

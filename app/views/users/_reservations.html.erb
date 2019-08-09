@@ -1,6 +1,7 @@
 <div class="container">
-    <div class="show-card">
+    <div class="show-booking-dashboard">
       <h2> My reservations </h2>
+      <% if @bookings_i_made.any? %>
       <% @bookings_i_made.each do |booking| %>
       <ul>
         <li> Booking total: <%=booking.total_amount %></li>
@@ -10,6 +11,9 @@
         <li> Booking pool:" <%=booking.pool_id %></li>
       </ul>
       <%= link_to "View", booking_path(booking.id), class: "btn btn-primary" %>
+      <% end %>
+      <% else %>
+      <p>You have no reservation for the moment</p>
       <% end %>
     </div>
 </div>
