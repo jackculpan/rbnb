@@ -6,6 +6,11 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  position: bottom;
+  bottom: 0px;
+}
+.content {
+  min-height: calc(78vh - 100px);
 }
 .footer-links {
   display: flex;
@@ -19,8 +24,11 @@
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
-.footer .fa-heart {
-  color: #D23333;
+
+.footer-copyright {
+  color: black;
+  font-weight: bold;
 }
+

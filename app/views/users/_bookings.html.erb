@@ -1,6 +1,7 @@
 <div class="container">
-   <div class="show-card">
+   <div class="show-booking-dashboard">
       <h2> My bookings </h2>
+      <% if @bookings_i_received.any? %>
       <% @bookings_i_received.each do |booking| %>
       <div class="card p-2">
         <ul data-booking-id="<%= booking.id %>">
@@ -15,6 +16,9 @@
           </div>
         </ul>
       </div>
+      <% end %>
+      <% else %>
+      <p>You don't have booking for the moment</p>
       <% end %>
     </div>
 </div>
