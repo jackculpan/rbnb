@@ -7,6 +7,10 @@
     <a href="https://www.linkedin.com/in/nicolas-toulemonde-8210b6139/?originalSubdomain=fr"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    <p><%= "What are you waiting for #{current_user.first_name} #{current_user.last_name}, book yoor pool now!!" %></p>
+    <% if current_user && current_user.business %>
+      <p><%= "What are you waiting for #{current_user.first_name}, book yoor pool now!!" %></p>
+    <% else %>
+      Welcome!
+    <% end %>
   </div>
 </div>
